@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://mgp02mkor0at"]
+
+[ext_resource type="Script" uid="uid://b0gd8hrqpvtbb" path="res://player.gd" id="1_a202f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p6kny"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p6kny"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_to2xd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p6kny"]
+
+[node name="Node3D" type="Node3D" unique_id=1254579576]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=506287577]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 6, 0, -1, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=193838330]
+shape = SubResource("BoxShape3D_p6kny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D2" unique_id=1783664132]
+mesh = SubResource("BoxMesh_p6kny")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=459344020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3137575, 0)
+script = ExtResource("1_a202f")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1971394468]
+transform = Transform3D(1, 0, 0, 0, 0.98052186, 0.19641012, 0, -0.19641012, 0.98052186, 0, 1.1649822, 2.5679195)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1687801448]
+mesh = SubResource("CapsuleMesh_to2xd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1605737543]
+shape = SubResource("CapsuleShape3D_p6kny")
